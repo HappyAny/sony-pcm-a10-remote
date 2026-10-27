@@ -1,0 +1,178 @@
+{
+  "updated_at": "2026-10-26T17:32:08.614704+08:00",
+  "release": "0.3.2",
+  "recommended_entry": "dist/standalone/PCM-A10.exe",
+  "frontend": {
+    "framework": "C# WPF .NET 10",
+    "theme": "Microsoft official Fluent",
+    "theme_modes": [
+      "System",
+      "Light",
+      "Dark"
+    ],
+    "native": true,
+    "tkinter_runtime": false,
+    "visible_title": "PCM-A10",
+    "default_window": {
+      "width": 540,
+      "height": 620
+    },
+    "minimum_window": {
+      "width": 480,
+      "height": 520
+    },
+    "previous_default_window": {
+      "width": 660,
+      "height": 640
+    },
+    "unified_record_button": [
+      "开始录音",
+      "暂停录音",
+      "继续录音"
+    ],
+    "toggle_reads_fresh_recorder_state": true,
+    "standby_in_menu": true,
+    "battery": {
+      "cells": 4,
+      "3_or_4": "green",
+      "2": "yellow",
+      "1": "red",
+      "charging": "bolt, level unknown"
+    }
+  },
+  "backend": {
+    "transport": "private UTF-8 JSON lines over child stdin/stdout",
+    "packaged_python": "3.14.1",
+    "network_listener": false,
+    "closing_window_stops_recording": false,
+    "closing_removes_pairing": false,
+    "priority_disconnect": true,
+    "pending_connection_cancellable": true,
+    "late_connection_closed": true,
+    "owned_backend_job": "JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE",
+    "connection_retry": {
+      "maximum": 1,
+      "delay_seconds": 1.2,
+      "only_before_recorder_protocol": true
+    },
+    "recording_or_setting_commands_retried": false
+  },
+  "capabilities": {
+    "source": "actual PCM-A10 0x03 response captured earlier in this session",
+    "count": 21,
+    "normal_recording_settings": 15,
+    "save_scene_actions": 1,
+    "native_setting_controls": 16,
+    "rehearsal": true,
+    "unknown_items_readonly": [
+      "0102",
+      "0103",
+      "0204"
+    ],
+    "details": "control-coverage.md",
+    "capture": "a10-capabilities-2026-10-26.json",
+    "fixture": "../tests/fixtures/a10-capabilities.hex"
+  },
+  "automated_tests": {
+    "command": "python scripts/check.py",
+    "passed": 58,
+    "failed": 0
+  },
+  "native_ui_integration": {
+    "command": "python scripts/portable_check.py",
+    "passed": true,
+    "native_process_exit_code": 0,
+    "uses_packaged_backend": true,
+    "mode": "simulation",
+    "hardware_commands_sent": false,
+    "details": "fluent-self-test-0.3.2.json",
+    "includes": [
+      "15 recording settings",
+      "save My Scene",
+      "rehearsal start/stop",
+      "direct gain",
+      "4 custom UTF-8 mark types",
+      "last mark",
+      "filename",
+      "record/pause/resume/stop",
+      "themes",
+      "minimum window",
+      "single record/pause/resume button",
+      "battery colors",
+      "backend already exited before window close",
+      "normal shutdown preserves recording",
+      "9 embedded license documents",
+      "embedded backend extraction and cleanup"
+    ]
+  },
+  "portable": {
+    "command": "python scripts/portable_check.py",
+    "passed": true,
+    "single_exe_copied": true,
+    "chinese_path_with_spaces": true,
+    "installed_dotnet_and_python_paths_removed": true,
+    "normal_backend_runtime_removed": true,
+    "crashed_backend_runtime_removed_on_next_start": true,
+    "clean_windows_vm_tested": false,
+    "details": "portable-check-0.3.2.json"
+  },
+  "abnormal_exit": {
+    "passed": true,
+    "mode": "simulation",
+    "only_owned_test_window_terminated": true,
+    "backend_terminated_by_job": true,
+    "hardware_commands_sent": false,
+    "details": "portable-check-0.3.2.json"
+  },
+  "visual_verification": {
+    "own_simulated_wpf_content_rendered": true,
+    "desktop_input_this_release": false,
+    "details": "previews/0.3.2-*.png"
+  },
+  "hardware": {
+    "commands_sent_this_release": false,
+    "pairing_changed_this_release": false,
+    "existing_connection_interrupted_this_release": false,
+    "previous_release_validation": "legacy-validation-0.3.1.json",
+    "previous_details": "hardware-reconnect-2026-10-26.json",
+    "core_details": "hardware-validation-2026-10-26.json",
+    "new_settings_write_retest_passed": false,
+    "recording_file_verified": false,
+    "long_running_connection_verified": false
+  },
+  "charging_indicator": {
+    "changed": false,
+    "comparison_release": "0.3.1",
+    "file": "../desktop/PcmA10.Fluent/BatteryIndicator.cs",
+    "sha256": "0613b943c497fb8e369392c4163efc7756ec5130056b1fd383565b5038dbe28b"
+  },
+  "packaging": {
+    "format": "self-contained single Windows EXE",
+    "built": true,
+    "distribution_file_count": 1,
+    "requires": "Windows 10/11 x64",
+    "dotnet_runtime_bundled": true,
+    "dotnet_version": "10.0.14",
+    "python_backend_bundled": true,
+    "python_version": "3.14.1",
+    "runtime_install_required": false,
+    "tcl_tk_bundled": false,
+    "source_and_licenses_included": true,
+    "embedded_license_documents": 9,
+    "source_archive_check": "ZIP CRC and every entry SHA256",
+    "raw_logs_included": false,
+    "proprietary_material_included": false,
+    "build_details": "portable-build-0.3.2.json",
+    "native_runtime_cache": "managed by .NET",
+    "backend_runtime_cache": "private temporary directory per window"
+  },
+  "binaries": {
+    "dist/standalone/PCM-A10.exe": {
+      "bytes": 76122799,
+      "sha256": "a7e660f64e4760e2345b7bfacc2c7a94e3e9170b33b647cb1a8137326f4091d7"
+    }
+  },
+  "license": "GPL-3.0-only",
+  "release_notes": "release-0.3.2.md",
+  "previous_release_validation": "legacy-validation-0.3.1.json"
+}

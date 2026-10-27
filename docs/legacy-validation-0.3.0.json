@@ -1,0 +1,128 @@
+{
+  "updated_at": "2026-10-26T15:57:41.018867+08:00",
+  "release": "0.3.0",
+  "recommended_entry": "Launch.cmd -> dist/fluent/PCM-A10-Fluent.exe",
+  "frontend": {
+    "framework": "C# WPF .NET 10",
+    "theme": "Microsoft official Fluent with compact application controls",
+    "theme_modes": [
+      "System",
+      "Light",
+      "Dark"
+    ],
+    "native": true,
+    "tkinter_runtime": false,
+    "default_window": {
+      "width": 660,
+      "height": 640
+    },
+    "minimum_window": {
+      "width": 600,
+      "height": 520
+    },
+    "previous_default_window": {
+      "width": 1080,
+      "height": 810
+    },
+    "default_area_reduction_percent": 51.7
+  },
+  "backend": {
+    "transport": "private UTF-8 JSON lines over child stdin/stdout",
+    "packaged_python": "3.14.1",
+    "network_listener": false,
+    "closing_window_stops_recording": false
+  },
+  "capabilities": {
+    "source": "actual PCM-A10 0x03 response captured earlier in this session",
+    "count": 21,
+    "normal_recording_settings": 15,
+    "save_scene_actions": 1,
+    "native_setting_controls": 16,
+    "rehearsal": true,
+    "unknown_items_readonly": [
+      "0102",
+      "0103",
+      "0204"
+    ],
+    "details": "control-coverage.md",
+    "capture": "a10-capabilities-2026-10-26.json",
+    "fixture": "../tests/fixtures/a10-capabilities.hex"
+  },
+  "automated_tests": {
+    "command": "python scripts/check.py",
+    "passed": 52,
+    "failed": 0
+  },
+  "native_ui_integration": {
+    "command": "python scripts/gui_check.py",
+    "passed": true,
+    "uses_packaged_backend": true,
+    "mode": "simulation",
+    "hardware_commands_sent": false,
+    "details": "fluent-self-test.json",
+    "includes": [
+      "15 recording settings",
+      "save My Scene",
+      "rehearsal start/stop",
+      "direct gain",
+      "4 custom UTF-8 mark types",
+      "last mark",
+      "filename",
+      "record/pause/resume/stop",
+      "themes",
+      "minimum window"
+    ]
+  },
+  "visual_verification": {
+    "own_simulated_wpf_content_rendered": true,
+    "desktop_screenshot": false,
+    "desktop_input": false,
+    "inspected": [
+      "light recording layout",
+      "dark recording layout",
+      "dark settings layout",
+      "600x520 scroll layout"
+    ],
+    "details": "previews/"
+  },
+  "hardware": {
+    "previous_core_control_verified": true,
+    "previous_details": "hardware-validation-2026-10-26.json",
+    "new_control_retest_passed": false,
+    "connection_error": 10049,
+    "recording_commands_sent_this_attempt": false,
+    "settings_changed_this_attempt": false,
+    "preset_overwritten_this_attempt": false,
+    "details": "hardware-settings-validation-2026-10-26.json",
+    "recording_file_verified": false,
+    "long_running_connection_verified": false
+  },
+  "packaging": {
+    "format": "directory release",
+    "built": true,
+    "requires": "Microsoft .NET 10 Windows Desktop Runtime x64",
+    "dotnet_runtime_bundled": false,
+    "python_backend_bundled": true,
+    "tcl_tk_bundled": false,
+    "source_and_licenses_included": true,
+    "archive_check": "ZIP CRC and every entry SHA256",
+    "raw_logs_included": false,
+    "proprietary_material_included": false
+  },
+  "binaries": {
+    "PCM-A10-Fluent.exe": {
+      "bytes": 193024,
+      "sha256": "3ced244a77b9b47a8c35b9e17155f24c8395a60bffd4a7b29277fb2bcf80126a"
+    },
+    "PCM-A10-Fluent.dll": {
+      "bytes": 165888,
+      "sha256": "5e18231b54bfae91f5a8b95aa14250687e943c1b3cd5393d2d0fe230928c463b"
+    },
+    "runtime/PCM-A10-Backend.exe": {
+      "bytes": 2215436,
+      "sha256": "611409efcb450170a3a49bf99fef1595c77b87a90086ee210eee54830d3bcb5e"
+    }
+  },
+  "license": "GPL-3.0-only",
+  "release_notes": "release-0.3.0.md"
+}

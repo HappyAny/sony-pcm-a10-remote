@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-10-26T16:36:17.225589+08:00",
+  "success": false,
+  "paired_again": false,
+  "recording_commands_sent": false,
+  "setting_changes_sent": false,
+  "cycles": [
+    {
+      "cycle": 1,
+      "paired": true,
+      "connected": true,
+      "remote_status": 1,
+      "battery": 6,
+      "gain": 10,
+      "closed": true,
+      "ready_after_close": false,
+      "status_after_close": 1,
+      "backend_exited": true
+    }
+  ],
+  "error": "[Errno 10060] Bluetooth connection failed; check pairing and REC Remote mode"
+}

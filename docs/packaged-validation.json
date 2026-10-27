@@ -1,0 +1,14 @@
+{
+  "demo-check": {
+    "exit_code": 0,
+    "elapsed_seconds": 0.654,
+    "stdout": "{\n  \"mode\": \"simulation\",\n  \"results\": [\n    {\n      \"action\": \"record\",\n      \"status\": 3,\n      \"gain\": 15\n    },\n    {\n      \"action\": \"gain-up\",\n      \"status\": 3,\n      \"gain\": 16\n    },\n    {\n      \"action\": \"mark\",\n      \"status\": 3,\n      \"gain\": 16\n    },\n    {\n      \"action\": \"pause\",\n      \"status\": 2,\n      \"gain\": 16\n    },\n    {\n      \"action\": \"record\",\n      \"status\": 3,\n      \"gain\": 16\n    },\n    {\n      \"action\": \"stop\",\n      \"status\": 1,\n      \"gain\": 16\n    }\n  ],\n  \"marks\": 1,\n  \"hardware_control_verified\": false\n}\n",
+    "stderr": ""
+  },
+  "doctor": {
+    "exit_code": 0,
+    "elapsed_seconds": 0.212,
+    "stdout": "{\n  \"radio_count\": 1,\n  \"pcm_a10_count\": 1,\n  \"pcm_a10_paired_count\": 1,\n  \"sockaddr_bth_size\": 30,\n  \"device_info_size\": 560,\n  \"transport\": \"Windows native RFCOMM\",\n  \"service_uuid\": \"84c6978c-deb9-4073-8c9d-d7bf48790ef7\",\n  \"hardware_control_verified\": false\n}\n",
+    "stderr": ""
+  }
+}

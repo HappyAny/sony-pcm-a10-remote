@@ -1,0 +1,95 @@
+<Application x:Class="PcmA10.Fluent.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ThemeMode="System">
+  <Application.Resources>
+    <ResourceDictionary>
+      <SolidColorBrush x:Key="CanvasBrush" Color="#F3F5F9" />
+      <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="InsetBrush" Color="#F5F7FA" />
+      <SolidColorBrush x:Key="StrokeBrush" Color="#E4E7ED" />
+      <SolidColorBrush x:Key="PrimaryBrush" Color="#192230" />
+      <SolidColorBrush x:Key="SecondaryBrush" Color="#657287" />
+      <SolidColorBrush x:Key="AccentBrush" Color="#3268D4" />
+      <SolidColorBrush x:Key="AccentSoftBrush" Color="#EDF3FF" />
+      <SolidColorBrush x:Key="AccentTextBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="SuccessBrush" Color="#107C41" />
+      <SolidColorBrush x:Key="DangerBrush" Color="#C42B1C" />
+      <SolidColorBrush x:Key="WarningSurfaceBrush" Color="#FFF6E5" />
+      <SolidColorBrush x:Key="WarningTextBrush" Color="#8A4C00" />
+      <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="{DynamicResource InsetBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource StrokeBrush}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="9,4" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Border x:Name="ButtonSurface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5" Padding="{TemplateBinding Padding}">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" />
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="ButtonSurface" Property="BorderBrush" Value="{DynamicResource AccentBrush}" /></Trigger>
+                <Trigger Property="IsPressed" Value="True"><Setter TargetName="ButtonSurface" Property="Opacity" Value="0.75" /></Trigger>
+                <Trigger Property="IsEnabled" Value="False"><Setter TargetName="ButtonSurface" Property="Opacity" Value="0.42" /></Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="ButtonSurface" Property="BorderBrush" Value="{DynamicResource AccentBrush}" /><Setter TargetName="ButtonSurface" Property="BorderThickness" Value="2" /></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="Card" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource StrokeBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="9" />
+        <Setter Property="Padding" Value="24" />
+      </Style>
+      <Style TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe UI Variable Text, Microsoft YaHei UI" />
+      </Style>
+      <Style x:Key="SectionLabel" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+      </Style>
+      <Style x:Key="Glyph" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+      </Style>
+      <Style x:Key="IconButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style x:Key="RecordButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="#C42B1C" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderBrush" Value="#A82015" />
+        <Setter Property="Padding" Value="22,12" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Border.CornerRadius" Value="8" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Border x:Name="RecordSurface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="8" Padding="{TemplateBinding Padding}">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" />
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False"><Setter TargetName="RecordSurface" Property="Opacity" Value="0.55" /></Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="RecordSurface" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" /><Setter TargetName="RecordSurface" Property="BorderThickness" Value="2" /></Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+          <Trigger Property="IsMouseOver" Value="True"><Setter Property="Background" Value="#B12619" /></Trigger>
+          <Trigger Property="IsPressed" Value="True"><Setter Property="Background" Value="#9C2116" /></Trigger>
+        </Style.Triggers>
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-26",
+  "timezone": "Asia/Singapore",
+  "version_tested": "0.1.1 gain fix; original core workflow also verified",
+  "mode": "physical Sony PCM-A10 over Windows classic Bluetooth; not simulation",
+  "peer": {
+    "protocol": 12288,
+    "capability_version": 3,
+    "model_type": 1,
+    "model": "PCM-A10"
+  },
+  "workflow": [
+    {
+      "action": "record",
+      "device_confirmed_at": "2026-10-26T12:03:37.709786+08:00"
+    },
+    {
+      "action": "mark",
+      "device_confirmed_at": "2026-10-26T12:04:06.218031+08:00"
+    },
+    {
+      "action": "pause",
+      "device_confirmed_at": "2026-10-26T12:05:28.317086+08:00"
+    },
+    {
+      "action": "record",
+      "device_confirmed_at": "2026-10-26T12:05:53.464215+08:00"
+    },
+    {
+      "action": "stop",
+      "device_confirmed_at": "2026-10-26T12:06:24.581367+08:00"
+    }
+  ],
+  "elapsed_max_seconds": 140,
+  "remaining_time_change_seconds": 143,
+  "meter": {
+    "state_samples": 1530,
+    "left_min_dbfs": -36.14,
+    "left_max_dbfs": -0.81,
+    "right_min_dbfs": -22.9,
+    "right_max_dbfs": 0.0
+  },
+  "gain": {
+    "initial": 10,
+    "final": 10,
+    "successful_adjustment_tested": false,
+    "device_rejections": [
+      {
+        "command": "0x16",
+        "status": "0xa1",
+        "time": "2026-10-26T12:15:14.835336+08:00"
+      }
+    ],
+    "false_success_fix_verified_on_hardware": true,
+    "manual_input_mode_changed": false
+  },
+  "final_state": {
+    "model": "PCM-A10",
+    "protocol": 12288,
+    "model_type": 1,
+    "remote_status": 1,
+    "battery": 3,
+    "gain": 10,
+    "elapsed": "00:00:00",
+    "remaining": "28:47:01",
+    "left_db": null,
+    "right_db": null,
+    "left_over": false,
+    "right_over": false,
+    "ready": true,
+    "status_text": "已停止"
+  },
+  "raw_local_logs": [
+    {
+      "path": "logs/pcma10-20261026-120328.jsonl",
+      "sha256": "18f05cea78c6d0ba4e335a99c342900a0289156152261ad8deccbe1ad22fed8c",
+      "bytes": 1284690,
+      "events": 7104
+    },
+    {
+      "path": "logs/pcma10-20261026-121250.jsonl",
+      "sha256": "ecfb7755c9ef20fb302aa1a38fe22efee86cb4a8290ef552565ab2da43df0aef",
+      "bytes": 681140,
+      "events": 4243
+    }
+  ],
+  "device_identifiers_redacted": true,
+  "recording_file_exported": false,
+  "recording_audio_listened": false,
+  "long_run_tested": false
+}

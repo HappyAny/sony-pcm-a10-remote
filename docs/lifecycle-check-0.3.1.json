@@ -1,0 +1,11 @@
+{
+  "mode": "simulation",
+  "hardware_commands_sent": false,
+  "success": true,
+  "frontend_killed": true,
+  "job_guard": true,
+  "backend_exit_results": {
+    "24912": true
+  },
+  "recorder_status_before_crash": 3
+}

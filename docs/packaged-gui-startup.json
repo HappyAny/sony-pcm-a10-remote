@@ -1,0 +1,7 @@
+{
+  "simulation_only": true,
+  "process_alive": true,
+  "window_title": "PCM-A10 蓝牙遥控 · 模拟模式",
+  "startup_verified": true,
+  "desktop_controls_tested_in_frozen_gui": false
+}

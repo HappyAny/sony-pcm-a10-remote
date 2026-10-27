@@ -1,0 +1,141 @@
+{
+  "success": true,
+  "release": "0.3.0.0",
+  "mode": "simulation",
+  "frontend": "WPF .NET 10 official Fluent theme",
+  "steps": [
+    {
+      "setting": "scene",
+      "value": 10,
+      "display": "\u5F53\u524D\uFF1AMy Scene 2"
+    },
+    {
+      "setting": "rec-mode",
+      "value": 7,
+      "display": "\u5F53\u524D\uFF1AMP3 48 kbps\uFF08\u5355\u58F0\u9053\uFF09"
+    },
+    {
+      "setting": "internal-mic",
+      "value": 8,
+      "display": "\u5F53\u524D\uFF1A\u624B\u52A8"
+    },
+    {
+      "setting": "external-input",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u97F3\u9891 / Line \u8F93\u5165"
+    },
+    {
+      "setting": "external-mic",
+      "value": 8,
+      "display": "\u5F53\u524D\uFF1A\u624B\u52A8"
+    },
+    {
+      "setting": "audio-input",
+      "value": 4,
+      "display": "\u5F53\u524D\uFF1A\u624B\u52A8"
+    },
+    {
+      "setting": "rec-filter",
+      "value": 4,
+      "display": "\u5F53\u524D\uFF1ALCF \u4F4E\u5207\u6EE4\u6CE2"
+    },
+    {
+      "setting": "limiter",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "setting": "pre-record",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "setting": "vor",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "setting": "sync-record",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "setting": "cross-memory",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "setting": "auto-mark",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "setting": "auto-mark-interval",
+      "value": 1800,
+      "display": "\u5F53\u524D\uFF1A30 \u5206\u949F"
+    },
+    {
+      "setting": "auto-mark-time",
+      "value": 2,
+      "display": "\u5F53\u524D\uFF1A\u5173\u95ED"
+    },
+    {
+      "action": "rehearsal-start",
+      "remoteStatus": 2,
+      "visibleStatus": "\u81EA\u52A8\u8BD5\u97F3\u4E2D"
+    },
+    {
+      "action": "mark",
+      "kind": 1,
+      "visibleMark": "#1  00:00:00  \u666E\u901A\u6807\u8BB0 \u00B7 \u6D4B\u8BD5 1"
+    },
+    {
+      "action": "mark",
+      "kind": 2,
+      "visibleMark": "#2  00:00:00  \u91CD\u8981 \u00B7 \u6D4B\u8BD5 2"
+    },
+    {
+      "action": "mark",
+      "kind": 3,
+      "visibleMark": "#3  00:00:00  \u95EE\u9898 \u00B7 \u6D4B\u8BD5 3"
+    },
+    {
+      "action": "mark",
+      "kind": 4,
+      "visibleMark": "#4  00:00:00  \u65B0\u8BDD\u9898 \u00B7 \u6D4B\u8BD5 4"
+    },
+    {
+      "action": "record",
+      "remoteStatus": 3,
+      "visibleStatus": "\u6B63\u5728\u5F55\u97F3"
+    },
+    {
+      "action": "pause",
+      "remoteStatus": 2,
+      "visibleStatus": "\u6682\u505C / \u5F85\u673A"
+    },
+    {
+      "action": "record",
+      "remoteStatus": 3,
+      "visibleStatus": "\u6B63\u5728\u5F55\u97F3"
+    },
+    {
+      "action": "stop",
+      "remoteStatus": 1,
+      "visibleStatus": "\u5DF2\u505C\u6B62"
+    }
+  ],
+  "supportedSettingControls": 16,
+  "themeSwitchingTested": true,
+  "defaultWindow": {
+    "width": 660,
+    "height": 640
+  },
+  "minimumWindow": {
+    "width": 600,
+    "height": 520
+  },
+  "previewsAreOwnSimulatorRendering": true,
+  "hardwareCommandsSent": false,
+  "error": null
+}

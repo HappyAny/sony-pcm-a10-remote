@@ -1,0 +1,140 @@
+<Window x:Class="PcmA10.Fluent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PcmA10.Fluent"
+        Title="PCM-A10" Width="540" Height="620" MinWidth="480" MinHeight="520"
+        WindowStartupLocation="CenterScreen" Background="{DynamicResource CanvasBrush}" Foreground="{DynamicResource PrimaryBrush}" Icon="Assets/app.ico"
+        FontFamily="Segoe UI Variable Text, Microsoft YaHei UI" FontSize="12"
+        UseLayoutRounding="True" SnapsToDevicePixels="True">
+  <Grid Margin="14,10,14,8">
+    <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+    <Grid Margin="0,0,0,9">
+      <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+        <TextBlock Text="&#xE720;" Style="{StaticResource Glyph}" FontSize="21" Foreground="{DynamicResource AccentBrush}" Margin="0,0,9,0"/>
+        <TextBlock Text="PCM-A10" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <Border x:Name="DemoBadge" Visibility="Collapsed" Background="{DynamicResource WarningSurfaceBrush}" CornerRadius="5" Padding="7,4" Margin="0,0,8,0"><TextBlock Text="模拟" FontSize="11" Foreground="{DynamicResource WarningTextBrush}"/></Border>
+        <Ellipse x:Name="ConnectionDot" Width="6" Height="6" Fill="{DynamicResource SecondaryBrush}" Margin="0,0,6,0"/>
+        <TextBlock x:Name="ConnectionText" Text="未连接" FontSize="11" VerticalAlignment="Center" Margin="0,0,10,0"/>
+        <local:BatteryIndicator x:Name="BatteryIcon" VerticalAlignment="Center" Margin="0,0,9,0"/>
+        <Button x:Name="SettingsButton" Style="{StaticResource IconButton}" Width="30" Height="30" Click="SettingsClick" ToolTip="更多操作与主题" AutomationProperties.Name="更多操作与主题设置">
+          <TextBlock Text="&#xE713;" Style="{StaticResource Glyph}" FontSize="15"/>
+          <Button.ContextMenu><ContextMenu Placement="Bottom" HorizontalOffset="-172" VerticalOffset="4" MinWidth="202">
+            <MenuItem x:Name="StandbyMenu" Header="进入录音待机（仅测电平）" Click="StandbyClick"/>
+            <Separator/>
+            <MenuItem Header="跟随系统主题" Tag="System" IsCheckable="True" IsChecked="True" Click="ThemeClick"/>
+            <MenuItem Header="浅色" Tag="Light" IsCheckable="True" Click="ThemeClick"/>
+            <MenuItem Header="深色" Tag="Dark" IsCheckable="True" Click="ThemeClick"/>
+            <Separator/>
+            <MenuItem x:Name="TraceMenu" Header="保存通信日志" IsCheckable="True" Click="TraceClick"/>
+            <MenuItem Header="打开日志文件夹" Click="OpenLogsClick"/>
+            <Separator/>
+            <MenuItem Header="许可证" Click="LicensesClick"/>
+          </ContextMenu></Button.ContextMenu>
+        </Button>
+      </StackPanel>
+    </Grid>
+    <Border Grid.Row="1" Style="{StaticResource Card}" Padding="9" Margin="0,0,0,7">
+      <StackPanel>
+        <Grid>
+          <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+          <ComboBox x:Name="DeviceCombo" DisplayMemberPath="DisplayName" IsEditable="True" Height="32" VerticalContentAlignment="Center" ToolTip="选择已配对录音机，或输入蓝牙地址" AutomationProperties.Name="选择录音机或输入蓝牙地址"/>
+          <Button x:Name="ScanButton" Grid.Column="1" Width="32" Height="32" Padding="0" Margin="6,0,0,0" Click="ScanClick" ToolTip="搜索录音机" AutomationProperties.Name="搜索录音机"><TextBlock Text="&#xE72C;" Style="{StaticResource Glyph}" FontSize="15"/></Button>
+          <Button x:Name="ConnectButton" Grid.Column="2" Content="连接设备" Height="32" Padding="13,4" MinWidth="80" Margin="6,0,0,0" Click="ConnectClick"/>
+          <Button Grid.Column="3" Width="30" Height="32" Padding="0" Margin="6,0,0,0" Click="HelpClick" Content="?" ToolTip="连接帮助" AutomationProperties.Name="连接帮助"/>
+        </Grid>
+        <Border x:Name="HelpPanel" Visibility="Collapsed" Margin="0,8,0,0" Background="{DynamicResource InsetBrush}" Padding="9" CornerRadius="6">
+          <StackPanel>
+            <TextBlock Text="在 A10 中打开 Bluetooth → REC Remote，首次使用请先在 Windows 配对。" TextWrapping="Wrap" FontSize="11"/>
+            <TextBlock Text="一次仅用一个遥控连接；设备改名后可直接输入蓝牙地址。关闭窗口不会停止录音。" TextWrapping="Wrap" Style="{StaticResource SectionLabel}" FontSize="11" Margin="0,4,0,0"/>
+            <Button Content="打开 Windows 蓝牙设置" Click="PairClick" HorizontalAlignment="Left" Margin="0,6,0,0" Padding="8,3"/>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+    </Border>
+    <Border x:Name="NoticePanel" Grid.Row="2" Visibility="Collapsed" Background="{DynamicResource WarningSurfaceBrush}" CornerRadius="7" Padding="10,7" Margin="0,0,0,5">
+      <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+        <TextBlock x:Name="NoticeText" Foreground="{DynamicResource WarningTextBrush}" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="11"/>
+        <Button Grid.Column="1" Width="24" Height="24" Padding="0" Margin="6,0,0,0" Click="DismissNoticeClick" ToolTip="关闭提示" AutomationProperties.Name="关闭提示"><TextBlock Text="&#xE711;" Style="{StaticResource Glyph}" FontSize="10"/></Button>
+      </Grid>
+    </Border>
+    <TabControl x:Name="MainTabs" Grid.Row="3" Background="Transparent" BorderThickness="0" SelectionChanged="MainTabChanged">
+      <TabItem Header="录音" Padding="14,5">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="0,5,2,0">
+          <StackPanel>
+            <Border Style="{StaticResource Card}" Padding="14,9">
+              <Grid>
+                <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+                <Grid>
+                  <StackPanel Orientation="Horizontal"><Ellipse x:Name="RecordingDot" Width="7" Height="7" Fill="{DynamicResource SecondaryBrush}" Margin="0,0,7,0"/><TextBlock x:Name="RecorderStatusText" Text="等待连接" FontWeight="SemiBold" FontSize="13"/></StackPanel>
+                  <TextBlock x:Name="InputSummaryText" HorizontalAlignment="Right" MaxWidth="220" TextTrimming="CharacterEllipsis" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" FontSize="11" Foreground="{DynamicResource SecondaryBrush}"/>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,4,0,2">
+                  <TextBlock x:Name="ElapsedText" Text="00:00:00" FontFamily="Bahnschrift" FontSize="38" FontWeight="Light"/>
+                  <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="剩余可录" FontSize="10" Foreground="{DynamicResource SecondaryBrush}" HorizontalAlignment="Right"/>
+                    <TextBlock x:Name="RemainingText" Text="—" FontSize="16" FontFamily="Bahnschrift" HorizontalAlignment="Right" Margin="0,2,0,0"/>
+                  </StackPanel>
+                </Grid>
+                <TextBlock x:Name="RecorderHintText" Grid.Row="2" Text="连接后可开始控制" FontSize="10" Foreground="{DynamicResource SecondaryBrush}" Margin="0,0,0,6" TextTrimming="CharacterEllipsis"/>
+                <Grid Grid.Row="3">
+                  <Grid.ColumnDefinitions><ColumnDefinition Width="1.2*"/><ColumnDefinition Width="*"/><ColumnDefinition Width="1.15*"/></Grid.ColumnDefinitions>
+                  <Button x:Name="RecordButton" Grid.Column="0" Style="{StaticResource RecordButtonStyle}" Height="36" Padding="12,5" Click="RecordClick" ToolTip="点击开始、暂停或继续录音；右键可仅进入待机" AutomationProperties.Name="开始录音">
+                    <StackPanel Orientation="Horizontal"><TextBlock x:Name="RecordButtonGlyph" Text="●" FontSize="11" Foreground="White" Margin="0,0,7,0"/><TextBlock x:Name="RecordButtonText" Text="开始录音" Foreground="White" VerticalAlignment="Center"/></StackPanel>
+                    <Button.ContextMenu><ContextMenu><MenuItem x:Name="RecordStandbyMenu" Header="进入录音待机（仅测电平）" Click="StandbyClick"/></ContextMenu></Button.ContextMenu>
+                  </Button>
+                  <Button x:Name="StopButton" Grid.Column="1" Height="36" Padding="8,4" Margin="6,0,0,0" Click="StopClick" Content="停止"/>
+                  <Button x:Name="RehearsalButton" Grid.Column="2" Height="36" Padding="8,4" Margin="6,0,0,0" Click="RehearsalClick" ToolTip="自动试音并调整录音电平，不自动开始录音"><TextBlock x:Name="RehearsalButtonText" Text="开始试音"/></Button>
+                </Grid>
+              </Grid>
+            </Border>
+            <Border Style="{StaticResource Card}" Padding="14,10" Margin="0,7,0,0">
+              <StackPanel>
+                <Grid Margin="0,0,0,5"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions><TextBlock Text="输入电平" FontWeight="SemiBold"/><TextBlock Grid.Column="1" Text="dBFS" FontSize="10" Foreground="{DynamicResource SecondaryBrush}"/><Button x:Name="PeakResetButton" Grid.Column="2" Content="清除设备峰值" Visibility="Collapsed" Height="22" Padding="6,1" Margin="6,0,0,0" Click="PeakResetClick"/></Grid>
+                <Grid Margin="0,0,0,5"><Grid.ColumnDefinitions><ColumnDefinition Width="18"/><ColumnDefinition Width="*"/><ColumnDefinition Width="46"/></Grid.ColumnDefinitions><TextBlock Text="L" FontSize="11"/><local:LevelMeter x:Name="LeftMeter" Grid.Column="1" Height="10" VerticalAlignment="Center" AutomationProperties.Name="左声道输入电平"/><TextBlock x:Name="LeftDbText" Grid.Column="2" Text="—" TextAlignment="Right" FontFamily="Bahnschrift" FontSize="13"/></Grid>
+                <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="18"/><ColumnDefinition Width="*"/><ColumnDefinition Width="46"/></Grid.ColumnDefinitions><TextBlock Text="R" FontSize="11"/><local:LevelMeter x:Name="RightMeter" Grid.Column="1" Height="10" VerticalAlignment="Center" AutomationProperties.Name="右声道输入电平"/><TextBlock x:Name="RightDbText" Grid.Column="2" Text="—" TextAlignment="Right" FontFamily="Bahnschrift" FontSize="13"/></Grid>
+                <TextBlock x:Name="MeterHintText" Text="进入录音或待机后显示实时电平" Foreground="{DynamicResource SecondaryBrush}" FontSize="10" Margin="0,3,0,5"/>
+                <Grid>
+                  <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+                  <TextBlock Text="录音电平" VerticalAlignment="Center" Margin="0,0,9,0"/>
+                  <Button x:Name="GainDownButton" Grid.Column="1" Content="−" Width="29" Height="29" Padding="0" Click="GainDownClick" AutomationProperties.Name="降低录音增益"/>
+                  <TextBox x:Name="GainText" Grid.Column="2" Text="—" Width="40" Height="29" MaxLength="2" TextAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="18" Margin="4,0" ToolTip="输入 0 到 30 的整数" AutomationProperties.Name="录音增益数值"/>
+                  <Button x:Name="GainUpButton" Grid.Column="3" Content="+" Width="29" Height="29" Padding="0" Click="GainUpClick" AutomationProperties.Name="提高录音增益"/>
+                  <Button x:Name="ApplyGainButton" Grid.Column="4" Content="设置" Height="29" Padding="9,3" Margin="6,0,0,0" Click="ApplyGainClick"/>
+                  <Button x:Name="ManualInputButton" Grid.Column="5" Content="当前输入切为手动" Height="29" Padding="9,3" HorizontalAlignment="Right" Click="ManualInputClick" ToolTip="明确更改当前输入的灵敏度设置，以便手动调整增益或试音"/>
+                </Grid>
+                <TextBlock x:Name="GainHintText" Visibility="Collapsed" Text="增益范围 0–30" FontSize="10" Foreground="{DynamicResource SecondaryBrush}" Margin="0,4,0,0"/>
+              </StackPanel>
+            </Border>
+            <Border Style="{StaticResource Card}" Padding="12,9" Margin="0,7,0,0">
+              <StackPanel>
+                <Grid>
+                  <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                  <TextBlock Text="标记" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                  <TextBox x:Name="MarkNameText" Grid.Column="1" Height="28" VerticalContentAlignment="Center" Padding="7,2" ToolTip="可选：输入自定义标记名称；留空时使用对应类别名称" AutomationProperties.Name="自定义标记名称"/>
+                  <Button x:Name="LastMarkButton" Grid.Column="2" Content="读取最近" Height="28" Padding="8,3" Margin="6,0,0,0" Click="LastMarkClick"/>
+                </Grid>
+                <UniformGrid Columns="4" Margin="0,6,0,0">
+                  <Button x:Name="MarkButton" Content="普通标记" Tag="1" Height="29" Padding="4,3" Margin="0,0,3,0" Click="MarkClick"/>
+                  <Button x:Name="ImportantMarkButton" Content="★ 重要" Tag="2" Height="29" Padding="4,3" Margin="3,0" Click="MarkClick"/>
+                  <Button x:Name="QuestionMarkButton" Content="? 问题" Tag="3" Height="29" Padding="4,3" Margin="3,0" Click="MarkClick"/>
+                  <Button x:Name="TopicMarkButton" Content="新话题" Tag="4" Height="29" Padding="4,3" Margin="3,0,0,0" Click="MarkClick"/>
+                </UniformGrid>
+                <TextBlock x:Name="LastMarkText" Text="尚无标记" FontSize="10" Foreground="{DynamicResource SecondaryBrush}" Margin="0,5,0,0" TextTrimming="CharacterEllipsis"/>
+              </StackPanel>
+            </Border>
+            <Expander Header="设备与最近操作" FontSize="11" Margin="0,6,0,0">
+              <Border Style="{StaticResource Card}" Padding="11,8" Margin="0,4,0,0"><StackPanel>
+                <Grid><StackPanel Orientation="Horizontal"><TextBlock Text="电池"/><local:BatteryIndicator x:Name="BatteryDetailIcon" Margin="7,0,0,0"/></StackPanel><TextBlock x:Name="FilenameText" Text="" HorizontalAlignment="Right" TextTrimming="CharacterEllipsis" MaxWidth="260"/></Grid>
+                <ScrollViewer MaxHeight="94" VerticalScrollBarVisibility="Auto" Margin="0,6,0,0"><ItemsControl x:Name="ActivityList"><ItemsControl.ItemTemplate><DataTemplate><Grid Margin="0,2"><Grid.ColumnDefinitions><ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions><TextBlock Text="{Binding Time}" FontSize="10" Foreground="{DynamicResource SecondaryBrush}" Margin="0,0,8,0"/><TextBlock Grid.Column="1" Text="{Binding Text}" FontSize="11" TextWrapping="Wrap"/></Grid></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></ScrollViewer>
+              </StackPanel></Border>
+            </Expander>
+          </StackPanel>
+        </ScrollViewer>
+      </TabItem>
+      <TabItem x:Name="RecordingSettingsTab" Header="录音设置" Padding="14,5"><local:RecorderSettingsView x:Name="RecorderSettings"/></TabItem>
+    </TabControl>
+    <Grid Grid.Row="4" Margin="1,6,1,0"><TextBlock x:Name="FooterText" Text="等待连接" FontSize="10" Foreground="{DynamicResource SecondaryBrush}" TextTrimming="CharacterEllipsis" Margin="0,0,40,0"/><TextBlock Text="0.3.2" HorizontalAlignment="Right" FontSize="10" Foreground="{DynamicResource SecondaryBrush}"/></Grid>
+  </Grid>
+</Window>

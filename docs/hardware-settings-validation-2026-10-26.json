@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-10-26T15:32:37.971382+08:00",
+  "transport": "Windows RFCOMM; Python source core",
+  "read_passed": false,
+  "write_test_requested": true,
+  "write_test_passed": false,
+  "recording_commands_sent": false,
+  "preset_overwritten": false,
+  "steps": [],
+  "error": "[Errno 10049] Sony 控制服务暂无可用通道。A10 可能已有遥控连接；请断开其他遥控客户端，并确认使用 REC Remote 模式。"
+}

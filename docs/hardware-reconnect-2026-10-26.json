@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-10-26T17:12:06.451624+08:00",
+  "success": true,
+  "paired_again": false,
+  "recording_commands_sent": false,
+  "setting_changes_sent": false,
+  "cycles": [
+    {
+      "cycle": 1,
+      "paired": true,
+      "connected": true,
+      "remote_status": 1,
+      "battery": 5,
+      "gain": null,
+      "closed": true,
+      "ready_after_close": false,
+      "status_after_close": 1,
+      "backend_exited": true,
+      "connection_phases": [
+        "等待录音机握手"
+      ],
+      "connection_retry_count": 0
+    },
+    {
+      "cycle": 2,
+      "paired": true,
+      "connected": true,
+      "remote_status": 1,
+      "battery": 5,
+      "gain": 10,
+      "closed": true,
+      "ready_after_close": false,
+      "status_after_close": 1,
+      "backend_exited": true,
+      "connection_phases": [
+        "等待录音机握手"
+      ],
+      "connection_retry_count": 0
+    }
+  ],
+  "backend_version": "0.3.1"
+}

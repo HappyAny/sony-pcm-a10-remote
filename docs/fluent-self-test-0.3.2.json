@@ -1,0 +1,237 @@
+{
+  "success": true,
+  "release": "0.3.2.0",
+  "mode": "simulation",
+  "frontend": "WPF .NET 10 official Fluent theme",
+  "steps": [
+    {
+      "setting": "scene",
+      "value": 10,
+      "display": "当前：My Scene 2"
+    },
+    {
+      "setting": "rec-mode",
+      "value": 7,
+      "display": "当前：MP3 48 kbps（单声道）"
+    },
+    {
+      "setting": "internal-mic",
+      "value": 8,
+      "display": "当前：手动"
+    },
+    {
+      "setting": "external-input",
+      "value": 2,
+      "display": "当前：音频 / Line 输入"
+    },
+    {
+      "setting": "external-mic",
+      "value": 8,
+      "display": "当前：手动"
+    },
+    {
+      "setting": "audio-input",
+      "value": 4,
+      "display": "当前：手动"
+    },
+    {
+      "setting": "rec-filter",
+      "value": 4,
+      "display": "当前：LCF 低切滤波"
+    },
+    {
+      "setting": "limiter",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "setting": "pre-record",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "setting": "vor",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "setting": "sync-record",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "setting": "cross-memory",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "setting": "auto-mark",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "setting": "auto-mark-interval",
+      "value": 1800,
+      "display": "当前：30 分钟"
+    },
+    {
+      "setting": "auto-mark-time",
+      "value": 2,
+      "display": "当前：关闭"
+    },
+    {
+      "action": "rehearsal-start",
+      "remoteStatus": 2,
+      "visibleStatus": "自动试音中"
+    },
+    {
+      "action": "mark",
+      "kind": 1,
+      "visibleMark": "#1  00:00:00  普通标记 · 测试 1"
+    },
+    {
+      "action": "mark",
+      "kind": 2,
+      "visibleMark": "#2  00:00:00  重要 · 测试 2"
+    },
+    {
+      "action": "mark",
+      "kind": 3,
+      "visibleMark": "#3  00:00:00  问题 · 测试 3"
+    },
+    {
+      "action": "mark",
+      "kind": 4,
+      "visibleMark": "#4  00:00:00  新话题 · 测试 4"
+    },
+    {
+      "action": "record-toggle",
+      "remoteStatus": 3,
+      "visibleButton": "暂停录音"
+    },
+    {
+      "action": "record-toggle",
+      "remoteStatus": 2,
+      "visibleButton": "继续录音"
+    },
+    {
+      "action": "record-toggle",
+      "remoteStatus": 3,
+      "visibleButton": "暂停录音"
+    }
+  ],
+  "supportedSettingControls": 16,
+  "themeSwitchingTested": true,
+  "unifiedRecordButton": true,
+  "batteryRules": [
+    {
+      "status": 4,
+      "cells": 4,
+      "color": "green"
+    },
+    {
+      "status": 3,
+      "cells": 3,
+      "color": "green"
+    },
+    {
+      "status": 2,
+      "cells": 2,
+      "color": "yellow"
+    },
+    {
+      "status": 1,
+      "cells": 1,
+      "color": "red"
+    },
+    {
+      "status": 5,
+      "cells": 4,
+      "color": "green"
+    },
+    {
+      "status": 6,
+      "cells": 0,
+      "color": "unknown"
+    }
+  ],
+  "licenseDocuments": 9,
+  "deployment": {
+    "embeddedBackend": true,
+    "runtimeVersion": "10.0.14",
+    "backendRuntimeDirectory": "D:\\Codes\\Vibe\\sony-pcm-a10-remote\\build\\portable-check-dbu96yxm\\temp\\PCM-A10\\backend\\run-32732-373fed2a70e741e0bbfa72decbc6bfed",
+    "backendRuntimeRemoved": true
+  },
+  "shutdown": {
+    "acknowledged": true,
+    "backendExited": true,
+    "lifetimeGuard": true,
+    "recorderState": {
+      "model": "PCM-A10",
+      "protocol": 12288,
+      "model_type": 1,
+      "remote_status": 3,
+      "battery": 5,
+      "gain": 20,
+      "elapsed": "00:00:00",
+      "remaining": "08:00:00",
+      "left_db": -29.21,
+      "right_db": -23.41,
+      "left_over": false,
+      "right_over": false,
+      "rehearsal_status": 4,
+      "input_status": 4,
+      "scene_edited": false,
+      "sleep_timer": 2,
+      "pre_record_seconds": null,
+      "filename": "DEMO_001.WAV",
+      "last_mark": {
+        "type": 4,
+        "number": 4,
+        "name": "测试 4",
+        "time": "00:00:00"
+      },
+      "peak_left_db": null,
+      "peak_right_db": null,
+      "peak_left_over": false,
+      "peak_right_over": false,
+      "ready": false,
+      "settings": {
+        "scene": 10,
+        "rec-mode": 13,
+        "internal-mic": 8,
+        "external-input": 2,
+        "external-mic": 8,
+        "audio-input": 4,
+        "rec-filter": 4,
+        "limiter": 2,
+        "pre-record": 2,
+        "vor": 2,
+        "sync-record": 2,
+        "cross-memory": 2,
+        "auto-mark": 1,
+        "auto-mark-interval": 1800,
+        "auto-mark-time": 2,
+        "save-scene": 2
+      },
+      "features": {
+        "rehearsal": true,
+        "remote_peak_reset": false,
+        "save_scene": true
+      },
+      "status_text": "正在录音"
+    }
+  },
+  "defaultWindow": {
+    "width": 540,
+    "height": 620
+  },
+  "minimumWindow": {
+    "width": 480,
+    "height": 520
+  },
+  "previewsAreOwnSimulatorRendering": true,
+  "hardwareCommandsSent": false,
+  "error": null,
+  "processExitCode": 0
+}

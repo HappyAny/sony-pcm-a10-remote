@@ -1,0 +1,173 @@
+{
+  "updated_at": "2026-10-26T17:13:10.547300+08:00",
+  "release": "0.3.1",
+  "recommended_entry": "Launch.cmd -> dist/fluent/PCM-A10-Fluent.exe",
+  "frontend": {
+    "framework": "C# WPF .NET 10",
+    "theme": "Microsoft official Fluent",
+    "theme_modes": [
+      "System",
+      "Light",
+      "Dark"
+    ],
+    "native": true,
+    "tkinter_runtime": false,
+    "visible_title": "PCM-A10",
+    "default_window": {
+      "width": 540,
+      "height": 620
+    },
+    "minimum_window": {
+      "width": 480,
+      "height": 520
+    },
+    "previous_default_window": {
+      "width": 660,
+      "height": 640
+    },
+    "unified_record_button": [
+      "开始录音",
+      "暂停录音",
+      "继续录音"
+    ],
+    "toggle_reads_fresh_recorder_state": true,
+    "standby_in_menu": true,
+    "battery": {
+      "cells": 4,
+      "3_or_4": "green",
+      "2": "yellow",
+      "1": "red",
+      "charging": "bolt, level unknown"
+    }
+  },
+  "backend": {
+    "transport": "private UTF-8 JSON lines over child stdin/stdout",
+    "packaged_python": "3.14.1",
+    "network_listener": false,
+    "closing_window_stops_recording": false,
+    "closing_removes_pairing": false,
+    "priority_disconnect": true,
+    "pending_connection_cancellable": true,
+    "late_connection_closed": true,
+    "owned_backend_job": "JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE",
+    "connection_retry": {
+      "maximum": 1,
+      "delay_seconds": 1.2,
+      "only_before_recorder_protocol": true
+    },
+    "recording_or_setting_commands_retried": false
+  },
+  "capabilities": {
+    "source": "actual PCM-A10 0x03 response captured earlier in this session",
+    "count": 21,
+    "normal_recording_settings": 15,
+    "save_scene_actions": 1,
+    "native_setting_controls": 16,
+    "rehearsal": true,
+    "unknown_items_readonly": [
+      "0102",
+      "0103",
+      "0204"
+    ],
+    "details": "control-coverage.md",
+    "capture": "a10-capabilities-2026-10-26.json",
+    "fixture": "../tests/fixtures/a10-capabilities.hex"
+  },
+  "automated_tests": {
+    "command": "python scripts/check.py",
+    "passed": 58,
+    "failed": 0
+  },
+  "native_ui_integration": {
+    "command": "python scripts/gui_check.py --app-dir build/fluent-candidate",
+    "passed": true,
+    "native_process_exit_code": 0,
+    "uses_packaged_backend": true,
+    "mode": "simulation",
+    "hardware_commands_sent": false,
+    "details": "fluent-self-test-0.3.1.json",
+    "includes": [
+      "15 recording settings",
+      "save My Scene",
+      "rehearsal start/stop",
+      "direct gain",
+      "4 custom UTF-8 mark types",
+      "last mark",
+      "filename",
+      "record/pause/resume/stop",
+      "themes",
+      "minimum window",
+      "single record/pause/resume button",
+      "battery colors",
+      "backend already exited before window close",
+      "normal shutdown preserves recording"
+    ]
+  },
+  "abnormal_exit": {
+    "command": "python scripts/lifecycle_check.py --app-dir build/fluent-candidate",
+    "passed": true,
+    "mode": "simulation",
+    "only_owned_test_window_terminated": true,
+    "backend_terminated_by_job": true,
+    "hardware_commands_sent": false,
+    "details": "lifecycle-check-0.3.1.json"
+  },
+  "visual_verification": {
+    "own_simulated_wpf_content_rendered": true,
+    "desktop_screenshot_earlier_in_this_release": true,
+    "real_window_connected_and_closed_earlier_in_this_release": true,
+    "inspected": [
+      "light recording layout",
+      "dark recording layout",
+      "settings layout",
+      "480x520 scroll layout",
+      "four-cell battery gallery"
+    ],
+    "details": "previews/0.3.1-*.png"
+  },
+  "hardware": {
+    "previous_core_control_verified": true,
+    "previous_details": "hardware-validation-2026-10-26.json",
+    "paired_device_reconnect_verified": true,
+    "cycles": 2,
+    "packaged_backend_version": "0.3.1",
+    "pairing_repeated": false,
+    "recording_commands_sent_this_attempt": false,
+    "settings_changed_this_attempt": false,
+    "details": "hardware-reconnect-2026-10-26.json",
+    "earlier_transient": "hardware-reconnect-transient-2026-10-26.json",
+    "retry_triggered_in_final_hardware_test": false,
+    "new_settings_write_retest_passed": false,
+    "recording_file_verified": false,
+    "long_running_connection_verified": false
+  },
+  "packaging": {
+    "format": "directory release",
+    "built": true,
+    "requires": "Microsoft .NET 10 Windows Desktop Runtime x64",
+    "dotnet_runtime_bundled": false,
+    "python_backend_bundled": true,
+    "tcl_tk_bundled": false,
+    "source_and_licenses_included": true,
+    "archive_check": "ZIP CRC and every entry SHA256",
+    "raw_logs_included": false,
+    "proprietary_material_included": false
+  },
+  "binaries": {
+    "PCM-A10-Fluent.exe": {
+      "bytes": 193024,
+      "sha256": "a2b71dca80485829adb04312163838b8ad3b81753c474c66113bc0ff29979ec6"
+    },
+    "PCM-A10-Fluent.dll": {
+      "bytes": 182272,
+      "sha256": "e38bfc93bce43a7450b3db185b6f512ab216e30d809a8336cbd9e52386cfc274"
+    },
+    "runtime/PCM-A10-Backend.exe": {
+      "bytes": 2551396,
+      "sha256": "259b30ea4698095619d91391307033c5d355cef0af123310c6f3e276f9ec83c7"
+    }
+  },
+  "license": "GPL-3.0-only",
+  "release_notes": "release-0.3.1.md",
+  "previous_release_validation": "legacy-validation-0.3.0.json"
+}

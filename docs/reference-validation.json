@@ -1,0 +1,7 @@
+{
+  "reference": "REC Remote 3.5.0 framing class T0.c and checksum T0.e",
+  "vectors_compared": 6,
+  "all_match": true,
+  "includes_all_byte_values": true,
+  "hardware_capture": false
+}

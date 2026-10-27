@@ -1,0 +1,86 @@
+{
+  "updated_at": "2026-10-26T15:03:14.245070+08:00",
+  "release": "0.2.0",
+  "recommended_entry": "Launch.cmd -> dist/fluent/PCM-A10-Fluent.exe",
+  "frontend": {
+    "framework": "C# WPF .NET 10",
+    "theme": "Microsoft official Fluent",
+    "modes": [
+      "System",
+      "Light",
+      "Dark"
+    ],
+    "deployment": "framework-dependent win-x64",
+    "requires": "Microsoft.WindowsDesktop.App 10.0 x64",
+    "native_ui": true,
+    "tkinter_used": false
+  },
+  "backend": {
+    "transport": "private UTF-8 JSON lines over child stdin/stdout",
+    "packaged_python": "3.14.1",
+    "network_listener": false,
+    "entry": "backend.py",
+    "closing_window_stops_recording": false
+  },
+  "automated_tests": {
+    "command": "python scripts/check.py",
+    "passed": 32,
+    "failed": 0
+  },
+  "native_ui_integration": {
+    "command": "python scripts/gui_check.py",
+    "passed": true,
+    "details": "fluent-self-test.json",
+    "uses_packaged_backend": true,
+    "mode": "simulation",
+    "hardware_commands_sent": false
+  },
+  "desktop_visual_verification": {
+    "light_layout_inspected": true,
+    "native_button_and_meter_interaction_tested": true,
+    "demo_record_button_clicked": true,
+    "light_dark_system_switching_programmatically_tested": true,
+    "dark_visual_inspection_completed": false,
+    "smaller_window_and_help_scroll_implemented": true,
+    "final_smaller_window_visual_check_completed": false,
+    "user_stopped_computer_use_with_escape": true
+  },
+  "hardware": {
+    "core_previously_verified": true,
+    "prior_details": "hardware-validation-2026-10-26.json",
+    "ordinary_process_device_discovery_passed": true,
+    "fluent_control_retest_completed": false,
+    "reason": "用户按 Esc 终止了桌面操作，本轮未继续实机控制；最新普通进程窗口未执行连接按钮或录音操作。",
+    "gain_success_verified": false,
+    "gain_rejection_previously_verified": true,
+    "recording_file_verified": false,
+    "long_running_connection_verified": false
+  },
+  "packaging": {
+    "format": "portable directory; installed .NET Desktop runtime required",
+    "built": true,
+    "runtime_integration_passed": true,
+    "bundles_dotnet_runtime": false,
+    "bundles_tcl_tk": false,
+    "source_included": true,
+    "proprietary_material_included": false,
+    "raw_logs_included": false,
+    "archive_validation": "scripts/package.py checks ZIP CRC and each archived file SHA256"
+  },
+  "binaries": {
+    "PCM-A10-Fluent.exe": {
+      "bytes": 193024,
+      "sha256": "607f5dc8e5d7a6b69f1d16a3ea09e73f3e8ef785afaf49a512b42a4062eb8774"
+    },
+    "PCM-A10-Fluent.dll": {
+      "bytes": 132608,
+      "sha256": "0208cd59ca34271d2361dbfeac690593fdd74ba52d86d87b143f7643044346f8"
+    },
+    "runtime/PCM-A10-Backend.exe": {
+      "bytes": 2200094,
+      "sha256": "1bf14b933c9e856e04942588d0502d29dfb9fd36bfa91a750870feca09950214"
+    }
+  },
+  "legacy_validation": "legacy-validation-0.1.1.json",
+  "license": "GPL-3.0-only"
+}

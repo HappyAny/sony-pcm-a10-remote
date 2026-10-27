@@ -1,0 +1,92 @@
+{
+  "created_at": "2026-10-26T11:49:55.864665+08:00",
+  "release": "0.1.1",
+  "recommended_entry": "Launch.cmd (existing Python; source mode)",
+  "python": "3.14.1",
+  "operating_system": "Windows-11-10.0.26300-SP0",
+  "automated_tests": {
+    "passed": 28,
+    "failed": 0,
+    "command": "python scripts/check.py"
+  },
+  "reference_frame_validation": {
+    "vectors": 6,
+    "all_bytes_covered": true,
+    "all_match": true,
+    "details": "reference-validation.json"
+  },
+  "gui_internal_integration": {
+    "passed": true,
+    "steps": [
+      "record",
+      "mark",
+      "gain-up",
+      "pause",
+      "record",
+      "stop"
+    ],
+    "command": "python scripts/gui_check.py",
+    "visual_inspection": false,
+    "desktop_input": false
+  },
+  "desktop_computer_use": {
+    "passed": true,
+    "blocked": false,
+    "physical_controls_clicked": true,
+    "previous_launch_attempt_was_blocked": true
+  },
+  "windows_native_api": {
+    "radio_count": 1,
+    "pcm_a10_count": 1,
+    "rfcomm_socket_creation": true,
+    "authentication_socket_option": true,
+    "sockaddr_bth_size": 30,
+    "device_info_size": 560
+  },
+  "hardware": {
+    "pairing_verified": true,
+    "rfcomm_connection_verified": true,
+    "greeting_verified": true,
+    "protocol": "0x3000",
+    "recording_controls_verified": [
+      "record",
+      "pause",
+      "resume",
+      "stop",
+      "mark"
+    ],
+    "live_stereo_meter_verified": true,
+    "gain_success_verified": false,
+    "gain_rejection_handled_correctly": true,
+    "recording_file_verified": false,
+    "details": "hardware-validation-2026-10-26.json",
+    "final_remote_status": 1,
+    "final_gain": 10
+  },
+  "packaging": {
+    "format": "portable directory",
+    "build_tool": "PyInstaller 6.17.0",
+    "built": true,
+    "runtime_verified": true,
+    "runtime_attempt": "Normal Windows process: demo-check and doctor. See packaged-validation.json.",
+    "single_file_attempt": "Could not create temporary directory",
+    "source_launcher_uses_experimental_exe": false,
+    "gui_startup_verified": true,
+    "cli_simulation_and_device_enumeration_verified": true,
+    "desktop_hardware_tests_used": "Python source GUI",
+    "frozen_gui_controls_verified": false
+  },
+  "binaries": {
+    "PCM-A10-Remote-CLI.exe": {
+      "bytes": 2325363,
+      "sha256": "228e469632493e6506d414beff1320faebe32a88462c3e28747f9cfa266d8a34"
+    },
+    "PCM-A10-Remote.exe": {
+      "bytes": 2321779,
+      "sha256": "b54d7a3259843aa2e7626bc26c4ca06a9640c368367bec16585e54711c39d774"
+    }
+  },
+  "proprietary_apk_and_source_in_release": false,
+  "license": "GPL-3.0-only",
+  "updated_at": "2026-10-26T12:19:22.298980+08:00"
+}

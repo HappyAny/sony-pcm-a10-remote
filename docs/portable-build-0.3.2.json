@@ -1,0 +1,23 @@
+{
+  "executable": "dist\\standalone\\PCM-A10.exe",
+  "bytes": 76122799,
+  "sha256": "a7e660f64e4760e2345b7bfacc2c7a94e3e9170b33b647cb1a8137326f4091d7",
+  "self_contained": true,
+  "runtime_version": "10.0.14",
+  "runtime_identifier": "win-x64",
+  "native_libraries_embedded": true,
+  "python_backend_embedded": true,
+  "runtime_install_required": false,
+  "trimming": false,
+  "distribution_file_count": 1,
+  "included_frameworks": [
+    {
+      "name": "Microsoft.NETCore.App",
+      "version": "10.0.14"
+    },
+    {
+      "name": "Microsoft.WindowsDesktop.App",
+      "version": "10.0.14"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcma10-remote"
+version = "0.3.2"
+description = "Unofficial Windows Bluetooth remote for the Sony PCM-A10"
+requires-python = ">=3.11"
+license = "GPL-3.0-only"
+dependencies = []
+
+[project.scripts]
+pcma10-remote = "pcma10_remote.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

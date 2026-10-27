@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>PCM-A10-Fluent</AssemblyName>
+    <RootNamespace>PcmA10.Fluent</RootNamespace>
+    <Version>0.3.2</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <NoWarn>$(NoWarn);WPF0001</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets\app.ico" />
+    <EmbeddedResource Include="$(BackendPayloadPath)" LogicalName="PcmA10.BackendPayload.zip" Condition="'$(BackendPayloadPath)' != ''" />
+    <EmbeddedResource Include="..\..\LICENSE" LogicalName="PcmA10.Licenses.Project.txt" />
+    <EmbeddedResource Include="..\..\THIRD_PARTY_NOTICES.md" LogicalName="PcmA10.Licenses.Notices.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\Python.txt" LogicalName="PcmA10.Licenses.Python.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\PyInstaller.txt" LogicalName="PcmA10.Licenses.PyInstaller.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\DotNet.txt" LogicalName="PcmA10.Licenses.DotNet.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\DotNet-ThirdPartyNotices.txt" LogicalName="PcmA10.Licenses.DotNet-ThirdPartyNotices.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\DotNet-Runtime-10.0.14.txt" LogicalName="PcmA10.Licenses.DotNetRuntime.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\DotNet-Desktop-10.0.14.txt" LogicalName="PcmA10.Licenses.DotNetDesktop.txt" />
+    <EmbeddedResource Include="..\..\docs\licenses\DotNet-Runtime-ThirdPartyNotices-10.0.14.txt" LogicalName="PcmA10.Licenses.DotNetRuntimeNotices.txt" />
+  </ItemGroup>
+</Project>
